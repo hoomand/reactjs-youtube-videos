@@ -1,5 +1,6 @@
 import React from "react";
 import VideoItem from "./VideoItem";
+import { List } from "semantic-ui-react";
 
 class VideoList extends React.Component {
   render() {
@@ -7,7 +8,11 @@ class VideoList extends React.Component {
       return <VideoItem video={video} />;
     });
 
-    return <div>{renderedList}</div>;
+    return (
+      <List divided relaxed>
+        {renderedList}
+      </List>
+    );
   }
 }
 
