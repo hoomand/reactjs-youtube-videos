@@ -8,6 +8,7 @@ class VideoItem extends React.Component {
     return (
       <ListItem
         className="video-item"
+        onClick={() => this.props.onVideoSelect(video)}
       >
         <Image src={video.snippet.thumbnails.medium.url} />
         <List.Content>
