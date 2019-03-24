@@ -1,4 +1,5 @@
 import React from "react";
+import { Segment, Header, Embed } from "semantic-ui-react";
 
 class VideoDetail extends React.Component {
   render() {
@@ -6,7 +7,14 @@ class VideoDetail extends React.Component {
     if (!video) {
       return <div>Loading...</div>;
     }
-    return <div>{video.snippet.title}</div>;
+
+    return (
+      <Segment>
+        <Embed id={video.id.videoId} source="youtube" />
+        <Header>{video.snippet.title}</Header>
+        <p>{video.snippet.description}</p>
+      </Segment>
+    );
   }
 }
 

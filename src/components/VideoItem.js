@@ -9,6 +9,7 @@ class VideoItem extends React.Component {
       <ListItem
         className="video-item"
         onClick={() => this.props.onVideoSelect(video)}
+        key={video.id.videoId}
       >
         <Image src={video.snippet.thumbnails.medium.url} />
         <List.Content>

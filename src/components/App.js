@@ -4,6 +4,7 @@ import youtube from "../apis/youtube";
 import SearchBar from "./SearchBar";
 import VideoList from "./VideoList";
 import VideoDetail from "./VideoDetail";
+import { Grid, GridRow, GridColumn } from "semantic-ui-react";
 
 class App extends React.Component {
   state = { videos: [], selectedVideo: null };
@@ -21,15 +22,25 @@ class App extends React.Component {
   };
   render() {
     return (
-      <div className="ui container">
-        <h1>Youtube Videos!</h1>
-        <SearchBar onFormSubmit={this.onTermSubmit} />
-        <VideoDetail video={this.state.selectedVideo} />
-        <VideoList
-          videos={this.state.videos}
-          onVideoSelect={this.onVideoSelect}
-        />
-      </div>
+      <Grid padded>
+        <Grid.Row>
+          <Grid.Column width={16}>
+            <h1>Youtube Videos!</h1>
+            <SearchBar onFormSubmit={this.onTermSubmit} />
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <GridColumn width={12}>
+            <VideoDetail video={this.state.selectedVideo} />
+          </GridColumn>
+          <GridColumn width={4}>
+            <VideoList
+              videos={this.state.videos}
+              onVideoSelect={this.onVideoSelect}
+            />
+          </GridColumn>
+        </Grid.Row>
+      </Grid>
     );
   }
 }
